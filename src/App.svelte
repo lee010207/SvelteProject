@@ -2,6 +2,7 @@
 	export let name;
 	export let flavor;
 	export let product;
+    import Array from './Array.svelte';
     import Calculator from './Calculator.svelte';
 
 	let num = 0;
@@ -17,11 +18,11 @@
 	<p>I'm {flavor}{product}</p>
 	<input bind:value={num}>
 	{#if num<10}
-	<h1 style="color: {colors[idx]}">{num} : 10 보다 작은 수</h1>
+	<p style="color: {colors[idx]}">{num} : 10 보다 작은 수</p>
 	{:else if num < 20}
-	<h1 style="color: {colors[idx]}">{num} : 20 보다 작은 수</h1>
+	<p style="color: {colors[idx]}">{num} : 20 보다 작은 수</p>
 	{:else}
-	<h1 style="color: {colors[idx]}">{num} : 큰 수</h1>
+	<p style="color: {colors[idx]}">{num} : 큰 수</p>
 	{/if}
 
 	{#each colors as color}
@@ -31,7 +32,9 @@
 	<button type="button" on:click={btnEvent}>색깔바꾸기</button>
 
 	<Calculator increment={()=>num+=1} drecrement={()=>num-=1}/>
-
+	<h1>점심 메뉴를 골라드려요!</h1>
+	<p>원하는 카테고리를 선택하세요!</p>
+	<Array/>
 </main>
 
 <style>
